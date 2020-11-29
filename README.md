@@ -10,5 +10,6 @@
 ## About project 
 1. 留言板 網址 為首頁後加:/message
 2. 套版的相關資料請放入public 資料夾
+<img src="https://github.com/clive0417/-messageboard2/blob/master/description.png">
 
 
