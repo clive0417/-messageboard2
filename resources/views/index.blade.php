@@ -57,7 +57,7 @@
 	{{-- INPUT MESSAGE CRUD-->Create --}}
 	<div class="col-md-10">
 		<div class="portlet light form-fit bordered">
-			<form method="post" action="{{'/messages'}}">
+			<form id="create_message" method="post" action="{{'/messages'}}">
 				<!--csrf 塞 session token 去跨過csrf -->
 				@csrf
 				<div class="portlet-title">
@@ -75,9 +75,8 @@
 				<div class="form-actions">
 					<div class="row">
 						<div class="col-md-offset-0 col-md-9">
-							<button type="submit" class="btn green">
-								<i class="fa fa-check"></i> Submit</button>
-							<button type="button" class="btn default">Cancel</button>
+							<button type="button" class="btn green" onclick="addMessage()">
+								<i class="fa fa-check" ></i>Submit</button>
 						</div>
 					</div>
 				</div>
@@ -111,20 +110,19 @@
 						{{$message->content}}
 					</p>
 					<div class="portlet-body form">
+						{{-- INPUT MESSAGE CRUD-->Ppdate --}}
 						<form action="/messages/{{$message->id}}" method="post">
-							@csrf
-							<input type="hidden" name="_method" value="put">
 							<div class="form-body">
 								<div class="form-group form-md-line-input form-md-floating-label">
 									<label for="form_control_1">pls revise message</label>
-									<textarea class="form-control" rows="3"
+									<textarea id="update_message_{{$message->id}}"class="form-control" rows="3"
 										name="content">{{$message->content}}</textarea>
 
 								</div>
 
 							</div>
 							<div class="form-actions noborder">
-								<button type="submit" class="btn blue">update</button>
+								<button type="button" class="btn blue"onclick="updateMessage({{$message->id}})">update</button>
 							</div>
 						</form>
 					</div>

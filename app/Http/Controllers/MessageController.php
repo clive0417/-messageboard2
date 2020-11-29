@@ -31,7 +31,7 @@ class MessageController extends Controller
         $message = new Message;
         $message->fill($request->all());
         $message->save();
-        return redirect('/messages');
+        // return redirect('/messages');
     }
 
 
@@ -46,7 +46,7 @@ class MessageController extends Controller
     {
         $message->fill($request->all());
         $message->save();
-        return redirect('/messages');
+        // return redirect('/messages');
     }
 
     /**

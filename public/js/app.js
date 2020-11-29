@@ -19356,10 +19356,32 @@ $(document).ready(function () {
       $.post(actionUrl, {
         _method: "delete"
       }).done(function () {
-        console.log("delete-OK");
-        location.href = "/messages"; //重新整理頁面
+        console.log("deleteOK");
+        location.reload(true);
       });
     }
+  };
+
+  addMessage = function addMessage() {
+    var contentArray = $("#create_message").serializeArray();
+    console.log(contentArray[1].value);
+    $.post("/messages/", {
+      content: contentArray[1].value
+    }).done(function () {
+      location.reload(true);
+    });
+  };
+
+  updateMessage = function updateMessage(id) {
+    var actionUrl = "/messages/" + id;
+    var contentArray = $("#update_message_" + id).serializeArray();
+    console.log(contentArray[0].value);
+    $.post(actionUrl, {
+      _method: "put",
+      content: contentArray[0].value
+    }).done(function () {
+      location.reload(true);
+    });
   }; // delete function end
 
 });
