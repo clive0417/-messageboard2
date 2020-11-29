@@ -1,0 +1,12 @@
+.mt-clipboard-container form {
+  display: none;
+}
+
+.mt-clipboard-container.edit form {
+  display: block;
+}
+
+.mt-clipboard-container.edit p {
+  display: none;
+}
+

@@ -1,6 +1,11 @@
 /node_modules
 /public/hot
 /public/storage
+/public/theme
+/public/_start
+/public/_resources
+/public/_documentation
+/public/theme_rtl
 /storage/*.key
 /vendor
 .env
