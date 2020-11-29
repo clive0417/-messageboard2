@@ -19339,6 +19339,7 @@ $(document).ready(function () {
       "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
     }
   }); // ajaxsetup CSRF-TOKEN end
+  // open/closed edit form
 
   toggleUpdateForm = function toggleUpdateForm(e) {
     $(e.target).closest(".actions").closest(".portlet-title").siblings(".portlet-body").children(".mt-clipboard-container").toggleClass("edit");
@@ -19382,8 +19383,7 @@ $(document).ready(function () {
     }).done(function () {
       location.reload(true);
     });
-  }; // delete function end
-
+  };
 });
 
 /***/ }),

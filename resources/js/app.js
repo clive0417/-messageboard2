@@ -8,7 +8,7 @@ $(document).ready(function() {
         }
     });
     // ajaxsetup CSRF-TOKEN end
-
+    // open/closed edit form
     toggleUpdateForm = function(e) {
         $(e.target)
             .closest(".actions")
@@ -17,6 +17,8 @@ $(document).ready(function() {
             .children(".mt-clipboard-container")
             .toggleClass("edit");
     };
+
+
     // delete function start
     deleteMessage = function(id) {
         let result = confirm("Do you want to delete message?");
@@ -45,7 +47,7 @@ $(document).ready(function() {
     };
     updateMessage = function(id) {
         let actionUrl = "/messages/" + id;
-        let contentArray = $("#update_message_"+id).serializeArray();
+        let contentArray = $("#update_message_" + id).serializeArray();
         console.log(contentArray[0].value);
 
         $.post(actionUrl, {
@@ -55,6 +57,4 @@ $(document).ready(function() {
             location.reload(true);
         });
     };
-
-    // delete function end
 });

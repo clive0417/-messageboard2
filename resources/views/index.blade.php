@@ -131,6 +131,9 @@
 		</div>
 	</div>
 	@endforeach
+	{{$messages->links()}}
+
+	
 	<!-- BEGIN JAVASCRIPTS -->
 	<!-- BEGIN CORE PLUGINS -->
 	<script src="_start/plugins/jquery-1.11.0.min.js" type="text/javascript"></script>
