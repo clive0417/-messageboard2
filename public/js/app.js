@@ -19339,11 +19339,12 @@ $(document).ready(function () {
       "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
     }
   }); // ajaxsetup CSRF-TOKEN end
-  // open/closed edit form
+  // open/closed edit form start
 
   toggleUpdateForm = function toggleUpdateForm(e) {
     $(e.target).closest(".actions").closest(".portlet-title").siblings(".portlet-body").children(".mt-clipboard-container").toggleClass("edit");
-  }; // delete function start
+  }; // open/closed edit form end
+  // delete function start
 
 
   deleteMessage = function deleteMessage(id) {
@@ -19356,7 +19357,7 @@ $(document).ready(function () {
 
       $.post(actionUrl, {
         _method: "delete"
-      }).done(function () {
+      }, "json").done(function () {
         console.log("deleteOK");
         location.reload(true);
       });
@@ -19368,7 +19369,7 @@ $(document).ready(function () {
     console.log(contentArray[1].value);
     $.post("/messages/", {
       content: contentArray[1].value
-    }).done(function () {
+    }, "json").done(function () {
       location.reload(true);
     });
   };
@@ -19380,7 +19381,7 @@ $(document).ready(function () {
     $.post(actionUrl, {
       _method: "put",
       content: contentArray[0].value
-    }).done(function () {
+    }, "json").done(function () {
       location.reload(true);
     });
   };

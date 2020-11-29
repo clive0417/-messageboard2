@@ -8,7 +8,8 @@ $(document).ready(function() {
         }
     });
     // ajaxsetup CSRF-TOKEN end
-    // open/closed edit form
+
+    // open/closed edit form start
     toggleUpdateForm = function(e) {
         $(e.target)
             .closest(".actions")
@@ -17,7 +18,7 @@ $(document).ready(function() {
             .children(".mt-clipboard-container")
             .toggleClass("edit");
     };
-
+    // open/closed edit form end
 
     // delete function start
     deleteMessage = function(id) {
@@ -29,7 +30,7 @@ $(document).ready(function() {
             //console.log(actionurl);位置驗證OK
             //console.log(actionUrl);
 
-            $.post(actionUrl, { _method: "delete" }).done(function() {
+            $.post(actionUrl, { _method: "delete" },"json").done(function() {
                 console.log("deleteOK");
                 location.reload(true);
             });
@@ -41,7 +42,7 @@ $(document).ready(function() {
 
         $.post("/messages/", {
             content: contentArray[1].value
-        }).done(function() {
+        },"json").done(function() {
             location.reload(true);
         });
     };
@@ -53,7 +54,7 @@ $(document).ready(function() {
         $.post(actionUrl, {
             _method: "put",
             content: contentArray[0].value
-        }).done(function() {
+        },"json").done(function() {
             location.reload(true);
         });
     };
